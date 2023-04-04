@@ -1,0 +1,21 @@
+Two types of dependencies 
+
+Normal dependencies: Normal dependencies are used as development and production also
+Dev dependencies: Dev dependencies are generally required for the development.
+
+
+What is Package.json
+. It is a configuration of npm. It keeps track of the version of the package which is installed in our system.
+
+What is Package lock.json
+. Package.json is a configuration of npm.
+. Package lock.json keeps track ok exact version that is been installed in our app.
+
+npm does not stands for node package manager it's does not have specific name but it's manage the packages.
+
+caret " ^ " checks the minor update in that packages if the updates are available then its automatically install the minor version of the packages.
+
+tilde " ~ " checks the major update in that packages if the updates are available then its automatically install the major version of the packages.
+
+
+

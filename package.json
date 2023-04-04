@@ -1,0 +1,27 @@
+{
+  "name": "react_learning",
+  "version": "1.0.0",
+  "description": "Learning react by Akashay Saini",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anksingh0911/react_learning.git"
+  },
+  "author": "Ankur Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anksingh0911/react_learning/issues"
+  },
+  "homepage": "https://github.com/anksingh0911/react_learning#readme",
+  "devDependencies": {
+    "parcel": "^2.8.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
