@@ -1,3 +1,45 @@
 #heading{
   color: red;
 }
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #efefef;
+}
+.logo{
+  width: 80px;
+}
+.nav-wrapper > ul{
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  
+}
+.nav-wrapper > ul > li{
+  list-style: none;
+  padding-left: 15px;
+}
+.search{
+  padding: 10px;
+}
+.res-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+.res-card{
+  text-align: center;
+  border: 1px solid #efefef;
+  width: 200px;
+  padding: 10px;
+  background-color: #efefef;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+.res-card:hover{
+  border: 1px solid #ff0000;
+}
+.res-logo{
+  width: 100%;
+}
