@@ -1,0 +1,33 @@
+
+@import './common.scss';
+
+.restaurantCardWrapper{
+  width: 250px;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px 5px 15px 5px;
+  &:hover{
+    box-shadow: 0 0 5px rgba(215,215,215, 0.8);
+  }
+  .logo{
+    width: 100%;
+  }
+  h4{
+    margin-bottom: $h5;
+    margin: 5px 0;
+    font-weight: $p-semi-bold !important;
+  }
+  p{
+    font-size: $font-size-b1;
+    margin: 5px 0;
+  }
+  .rcdt{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px 0 8px 0;
+    color: $color-light-heading;
+  }
+  
+}

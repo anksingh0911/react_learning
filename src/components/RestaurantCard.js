@@ -1,5 +1,6 @@
 import { CDN_URL } from "../utils/constant";
-
+import styles from '../styles/restaurantCard.module.scss';
+import Rating from "./Rating";
 const RestaurantCard = (props)=>{
   const {resData} = props;
   const {
@@ -12,15 +13,18 @@ const RestaurantCard = (props)=>{
     deliveryTime
   } = resData?.data
   return(
-    <div className="res-card">
+    <div className={styles.restaurantCardWrapper}>
         <img 
-      className="res-logo"
-      src={ CDN_URL + cloudinaryImageId } alt="Logo"
-      />
-        <h3>{name}</h3>
-        <h4>{cuisines.join(', ')}</h4>
-        <h4>₹{costForTwo/100} For Two</h4>
-        <h4>{deliveryTime} minutes</h4>
+          className={styles.logo}
+          src={ CDN_URL + cloudinaryImageId } alt="Logo"
+        />
+        <h4>{name}</h4>
+        <p>{cuisines.join(', ')}</p>
+        <p className={styles.rcdt}>
+          <Rating rating = {avgRating}/>
+          <span>₹{costForTwo/100} For Two</span>
+          <span>{deliveryTime} minutes</span>
+          </p>
     </div>
   )
 }

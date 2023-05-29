@@ -1,0 +1,42 @@
+@import './common.scss';
+
+.warning{
+  background-color: $color-warning;
+  padding: 2px 4px;
+  color: #fff;
+  display: flex;
+  align-items: flex-start;
+  .icon{
+    padding-right: 3px;
+  }
+}
+.danger{
+  background-color: $color-danger;
+  padding: 2px 4px;
+  color: #fff;
+  display: flex;
+  align-items: flex-start;
+  .icon{
+    padding-right: 3px;
+  }
+}
+.success{
+background-color: $color-success;
+padding: 2px 4px;
+color: #fff;
+display: flex;
+align-items: flex-start;
+.icon{
+  padding-right: 3px;
+}
+}
+.secondary{
+  background-color: transparent;
+  color:$color-dark;
+  padding: 2px 4px;
+  display: flex;
+  align-items: flex-start;
+  .icon{
+    padding-right: 3px;
+  }
+}
