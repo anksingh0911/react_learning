@@ -14,9 +14,10 @@
     width: 100%;
   }
   h4{
-    margin-bottom: $h5;
-    margin: 5px 0;
+    font-size: $h6;
+    margin: 8px 0;
     font-weight: $p-semi-bold !important;
+    text-transform: capitalize;
   }
   p{
     font-size: $font-size-b1;

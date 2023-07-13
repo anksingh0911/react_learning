@@ -29,24 +29,13 @@ const Body = () => {
   };
 
   if(!allRestaurant) return null;
-  if(filteredRestaurant?.length === 0 ) return <h1>No Restaurant found according to you Input!!!</h1>
-  return allRestaurant?.length === 0 ? (
+  if(filteredRestaurant?.length === 0 ) return (<ShimmerUI />)
+  return filteredRestaurant?.length === 0 ? (
     <ShimmerUI />
   ) : (
     <div className="body">
       <div className="search">
-        <button
-          onClick={() => {
-            const filteredList = filteredRestaurant.filter(
-              (res) => res?.data?.avgRating > 4
-            );
-            setFilteredRestaurant(filteredList);
-          }}
-        >
-          Filter above 4 rating
-        </button>
-
-        <input
+      <input
           type="text"
           placeholder="search"
           onChange={(e) => setSearchInput(e.target.value)}
@@ -58,6 +47,16 @@ const Body = () => {
           }}
         >
           Search
+        </button>
+        <button
+          onClick={() => {
+            const filteredList = filteredRestaurant.filter(
+              (res) => res?.data?.avgRating > 4
+            );
+            setFilteredRestaurant(filteredList);
+          }}
+        >
+          Filter above 4 rating
         </button>
       </div>
       <div className="res-container">

@@ -1,5 +1,33 @@
-.shimmerWrapper{
-  background-color: #efefef;
-  height: 300px;
-  width: 300px;
+.shimmerCardWrapper{
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  background-color: #fff;
+  margin: 10px 0;
+  .shimmerCard{
+    width: 250px;
+    height: 300px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px 5px 15px;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.4);
+    .img{
+      background-color: #f0eeee;
+      height: 40%;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    .text{
+      background-color: #f0eeee;
+      width: 90%;
+      height: 5px;
+      border-radius: 5px;
+      margin-bottom: 8px;
+      &:last-child{
+        width: 80%;
+      }
+    }
+  }
 }

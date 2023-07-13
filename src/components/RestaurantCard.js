@@ -24,7 +24,7 @@ const RestaurantCard = (props)=>{
           <Rating rating = {avgRating}/>
           <span>₹{costForTwo/100} For Two</span>
           <span>{deliveryTime} minutes</span>
-          </p>
+        </p>
     </div>
   )
 }
