@@ -1,0 +1,60 @@
+@import './common.scss';
+.resInfoWrapper{
+  margin: 10px 0;
+  background-color: $color-gray-2 ;
+  padding: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  .resName{
+    font-size: 1rem;
+    font-weight: $p-semi-bold;
+  }
+  .cuisines, .costForTwo{
+    font-size: 0.8rem;
+    margin: 0px;
+    color: $color-dark;
+  }
+  .rating{
+    display: block;
+    width:max-content;
+    padding: 0px;
+    font-size: 0.68rem;
+  }
+}
+.menuCategoryWrapper{
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #efefef;
+  .menuWrapper{
+    background-color: rgba(215,215,215,0.1);
+    box-shadow: 0 0 5px rgba(215,215,215,0.7);
+    padding: 8px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .ribbonText{
+      font-size: 0.8rem;
+      margin: 0px;
+    }
+    .menuName{
+      margin: 0px;
+      font-size: 0.9rem;
+      font-weight: $p-light;
+    }
+    .menuPrice{
+      display: flex;
+      align-items: flex-start;
+      font-size: 0.8rem;
+    }
+    .menuDescription{
+      font-size: 0.8rem;
+      margin: 5px 0;
+      color: $color-body;
+      font-weight: $p-light;
+    }
+    img{
+      width: 100px;
+    }
+  }
+}
