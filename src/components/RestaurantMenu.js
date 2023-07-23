@@ -6,23 +6,14 @@ import styles from '../styles/restaurantMenu.module.scss';
 import { CDN_URL } from "../utils/constant";
 import { useParams } from "react-router-dom";
 import { MENU_URL } from "../utils/constant";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu =()=>{
-  const [restaurantInfo, setRestaurantInfo]= useState(null);
+
   const {resId} = useParams();
-
-  useEffect(()=>{
-      fetchMenu()
-},[]);
-
-  const fetchMenu = async()=>{
-    const data = await fetch(MENU_URL + resId)
-      const json = await data.json();
-      setRestaurantInfo(json);
-  }
+  const restaurantInfo = useRestaurantMenu(resId);
 
   if(restaurantInfo === null) return(<ShimmerUI/>)
-
   const {name, cuisines, costForTwoMessage, avgRating} = restaurantInfo?.data?.cards[0]?.card?.card?.info
   const{cards} = restaurantInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR;
   
