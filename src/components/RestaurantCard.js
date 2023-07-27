@@ -11,8 +11,9 @@ const RestaurantCard = (props)=>{
     cuisines,
     avgRating,
     costForTwo,
-    deliveryTime
-  } = resData?.data
+    deliveryTime,
+    sla
+  } = resData?.info
   return(
     <div className="w-[250px] p-2 mb-4 rounded-md">
         <img 
@@ -23,10 +24,22 @@ const RestaurantCard = (props)=>{
         <p className="text-xs text-gray-500 mb-2">{cuisines.join(', ')}</p>
         <p className="flex justify-between text-xs">
           <Rating rating = {avgRating}/>
-          <span className="font-semibold text-gray-700">₹{costForTwo/100} For Two</span>
-          <span className="font-semibold text-gray-700">{deliveryTime} minutes</span>
+          <span className="font-semibold text-gray-700">{costForTwo}</span>
+          <span className="font-semibold text-gray-700">{sla?.deliveryTime} minutes</span>
         </p>
     </div>
   )
 }
+
 export default RestaurantCard;
+
+export const withPromotedLabel = (RestaurantCard)=>{
+  return (props)=>{
+    return(
+      <>
+        <label className="absolute bg-gray-500 mt-0 px-2 py-1 text-white text-xs rounded-md">Promoted</label>
+        <RestaurantCard {...props}/>
+      </>
+    )
+  }
+}

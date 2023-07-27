@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { Link  } from "react-router-dom";
-import RestaurantCard from "./RestaurantCard";
-import resList from "../utils/mockData";
+import { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
+import { UserContext } from "../utils/UserContext";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import ShimmerUI from "./Shimmer";
 
 const Body = () => {
@@ -9,12 +9,16 @@ const Body = () => {
   const [allRestaurant, setAllRestaurant] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchInput, setSearchInput] = useState();
-
+  const {setUserName} = useContext(UserContext);
+  
   const filterData = (restaurantList, searchInput) => {
+    console.log(restaurantList, 'restaurantList')
     return restaurantList.filter((restaurant) =>
-      restaurant?.data?.name?.toLowerCase().includes(searchInput.toLowerCase())
+      restaurant?.info?.name?.toLowerCase().includes(searchInput.toLowerCase())
     );
   };
+
+  const PromotedRestaurant = withPromotedLabel(RestaurantCard)
 
   useEffect(() => {
     getRestaurant();
@@ -25,25 +29,25 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5355161&lng=77.3910265&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    setAllRestaurant(json?.data?.cards[2]?.data?.data?.cards);
-    setFilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards)
+    setAllRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilteredRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
 
-  if(!allRestaurant) return null;
-  if(filteredRestaurant?.length === 0 ) return (<ShimmerUI />)
+  if (!allRestaurant) return null;
+  if (filteredRestaurant?.length === 0) return <ShimmerUI />;
   return filteredRestaurant?.length === 0 ? (
     <ShimmerUI />
   ) : (
-    <div className="body p-5">
-      <div className="search p-2">
-      <input
-        className="border border-solid border-black p-1 rounded-md"
+    <div className="xl:container container mx-auto p-5 justify-center">
+      <div className="search p-2 flex items-center">
+        <input
+          className="border border-solid border-black p-1 rounded-md"
           type="text"
           placeholder="Search"
-          onChange={(e) => setSearchInput(e.target.value)}
+          onChange={(e) =>setSearchInput(e.target.value)}
         />
         <button
-        className="px-4 py-1 bg-green-500 m-2 rounded-md"
+          className="px-4 py-1 bg-green-500 m-2 rounded-md"
           onClick={() => {
             const data = filterData(allRestaurant, searchInput);
             setFilteredRestaurant(data);
@@ -52,23 +56,38 @@ const Body = () => {
           Search
         </button>
         <button
-        className="px-4 py-1 bg-gray-300 m-2 border rounded-md"
+          className="px-4 py-1 bg-gray-300 m-2 border rounded-md"
           onClick={() => {
             const filteredList = filteredRestaurant.filter(
-              (res) => res?.data?.avgRating > 4
+              (res) => res?.info?.avgRating > 4
             );
             setFilteredRestaurant(filteredList);
           }}
         >
           Top Rated
         </button>
+
+        <input
+          className="border border-solid border-black p-1 rounded-md"
+          type="text"
+          placeholder="Logged in user name"
+          onChange={(e) => setUserName(e.target.value)}
+        />
       </div>
-      <div className="res-container flex flex-wrap justify-start">
+      <div className="xl:container mx-auto flex flex-wrap justify-start">
         {filteredRestaurant.map((restaurant) => (
-          <Link  key={restaurant?.data?.id} 
-          className="shadow-lg rounded-lg p-2 mx-1 mb-4"
-            to={"/restaurants/" + restaurant?.data?.id}>
-          <RestaurantCard resData={restaurant} />
+          <Link
+            key={restaurant?.info?.id}
+            className="shadow-lg rounded-lg p-2 mx-1 mb-4"
+            to={"/restaurants/" + restaurant?.info?.id}
+          >
+            {restaurant?.data?.promoted === false ? 
+            (
+            <PromotedRestaurant resData={restaurant}/>
+            ) : (
+            <RestaurantCard resData={restaurant} />
+            )}
+            
           </Link>
         ))}
       </div>

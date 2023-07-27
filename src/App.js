@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import ReactDOM from 'react-dom/client';
 import Header from "./components/Header";
@@ -7,13 +7,18 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import { UserContext } from "./utils/UserContext";
 
 const AppLayout = ()=>{
+  const [userName,  setUserName] = useState('Ankur Singh');
+
   return(
-    <div className="app">
+    <UserContext.Provider value={{loggedInUser: userName, setUserName}}>
+      <div className="app">
         <Header/>
         <Outlet/>
-    </div>
+      </div>
+    </UserContext.Provider>
   )
 };
 const appRouter = createBrowserRouter([
