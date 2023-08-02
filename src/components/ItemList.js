@@ -1,8 +1,16 @@
 import { MdCurrencyRupee } from "react-icons/md";
+import { useDispatch } from "react-redux";
+import { addItems } from "../utils/cartSlice";
 import { CDN_URL } from "../utils/constant";
 
 const ItemList = (props)=>{
 const {items} = props;
+const dispatch = useDispatch();
+
+const handleAddItem = (data)=>{
+  // dispatch an action
+  dispatch(addItems(data));
+}
   return (
     <>
       {items?.map(item =>(
@@ -16,7 +24,9 @@ const {items} = props;
           </div>
           <div className="w-2/12 p-3 flex justify-center relative"> 
             <img className="w-[100%] rounded-lg" src={CDN_URL + item?.card?.info?.imageId}/>
-            <button className="absolute bottom-0 w-[80%] bg-white shadow-lg text-sm text-gray-600 rounded-lg py-1 px-4">
+            <button className="absolute bottom-0 w-[80%] bg-white shadow-lg text-sm text-gray-600 rounded-lg py-1 px-4"
+              onClick={()=>handleAddItem(item)}
+            >
               Add
             </button>
           </div>

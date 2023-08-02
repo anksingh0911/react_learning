@@ -21,7 +21,6 @@ const RestaurantCategories =(props)=>{
       {showItem && (
         <ItemList items = {data?.itemCards}/>
       )}
-      
     </div>
 )};
 export default RestaurantCategories;
