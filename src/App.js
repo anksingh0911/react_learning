@@ -10,7 +10,9 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import { UserContext } from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
-
+import Cart from "./components/cart";
+import Login from "./components/Login";
+import Register from "./components/Register";
 const AppLayout = ()=>{
   const [userName,  setUserName] = useState('Ankur Singh');
 
@@ -47,7 +49,19 @@ const appRouter = createBrowserRouter([
       {
         path:'/restaurants/:resId',
         element:<RestaurantMenu/>,
-      }
+      },
+      {
+        path:'/cart',
+        element:<Cart/>,
+      },
+      {
+        path:'/login',
+        element:<Login/>,
+      },
+      {
+        path:'/register',
+        element:<Register/>,
+      },
     ],
     errorElement:<Error/>
   }

@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../utils/UserContext";
 import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import ShimmerUI from "./Shimmer";
+import SlickSlider from "./TopSlider";
+import FoodVeritiesSlider from './FoodVeritiesSlider';
 
 const Body = () => {
 
   const [allRestaurant, setAllRestaurant] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+  const [allData,  setAllData]= useState();
   const [searchInput, setSearchInput] = useState();
   const {setUserName} = useContext(UserContext);
   
@@ -26,20 +29,35 @@ const Body = () => {
 
   const getRestaurant = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5355161&lng=77.3910265&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5729847&lng=77.32490430000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    setAllRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    setFilteredRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setAllRestaurant(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilteredRestaurant(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setAllData(json?.data)
   };
+  const topBannerSlider = allData?.cards[0]?.card?.card?.imageGridCards?.info;
+  const heh = allData?.cards[1]?.card?.card;
 
+  console.log(topBannerSlider,heh,allData, 'heh')
   if (!allRestaurant) return null;
   if (filteredRestaurant?.length === 0) return <ShimmerUI />;
+
   return filteredRestaurant?.length === 0 ? (
     <ShimmerUI />
   ) : (
     <div className="xl:container container mx-auto p-5 justify-center">
-      <div className="search p-2 flex items-center">
+      <div className='p-2'>
+        <h4 className='text-2xl font-bold mb-2'>Best offers for you</h4>
+        <SlickSlider data= {topBannerSlider}/>
+      </div>
+
+      <div className='p-2'>
+        <h4 className='text-2xl font-bold mb-2'>{heh?.header?.title}</h4>
+        <FoodVeritiesSlider data= {heh?.imageGridCards?.info}/> 
+      </div>
+
+      <div className="bg-gray-200 search mx-2 p-2 flex justify-end items-center rounded-md">
         <input
           className="border border-solid border-black p-1 rounded-md"
           type="text"

@@ -40,15 +40,12 @@ const Header = ()=>{
             <Link to='/contact'> Contact</Link>
           </li>
           <li className="px-2">
-            Cart({cartItems?.length} items)
+          <Link to='/cart'>Cart({cartItems?.length} items)</Link>
           </li>
-          <button className="px-2"
-          onClick={()=>{
-            btnName === 'Login' ? 
-            setBtnName('Logout'):setBtnName('Login')}}
-          >
-            {btnName}
-          </button>
+          <li className="px-2">
+          <Link to='/login'>Login</Link>
+          </li>
+
           <li>{loggedInUser}</li>
         </ul>
       </div>

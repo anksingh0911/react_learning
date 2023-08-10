@@ -5,6 +5,7 @@ import { CDN_URL } from "../utils/constant";
 
 const ItemList = (props)=>{
 const {items} = props;
+console.log(items, 'items')
 const dispatch = useDispatch();
 
 const handleAddItem = (data)=>{
