@@ -5,6 +5,7 @@ import { responsive } from "../utils/SliderResponsiveBreakpints";
 import Image from "./Image";
 import { CDN_URL } from "../utils/constant";
 import SliderImage from "./Image";
+import { foodVerities_url } from "../utils/constant";
 
 const FoodVeritiesSlider = ({data})=>{
   console.log(data)
@@ -22,7 +23,10 @@ const FoodVeritiesSlider = ({data})=>{
   return(
     <Slider {...settings}>
       {data?.map(item => (
-        <SliderImage data={item}/>
+        <div className='p-1 rounded-lg'>
+          {console.log(item)}
+          <img src={foodVerities_url + item?.imageId}/>
+        </div>
       ))}
     </Slider>
   )
