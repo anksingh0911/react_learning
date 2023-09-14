@@ -4,6 +4,7 @@ import Rating from "./Rating";
 
 const RestaurantCard = (props)=>{
   const {resData} = props;
+  console.log(props,'props')
   const {
     name,
     cloudinaryImageId,
@@ -29,9 +30,7 @@ const RestaurantCard = (props)=>{
         </p>
     </div>
   )
-}
-
-export default RestaurantCard;
+};
 
 export const withPromotedLabel = (RestaurantCard)=>{
   return (props)=>{
@@ -43,3 +42,5 @@ export const withPromotedLabel = (RestaurantCard)=>{
     )
   }
 }
+
+export default RestaurantCard;

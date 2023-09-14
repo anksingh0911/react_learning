@@ -23,7 +23,7 @@ const Body = () => {
     );
   };
 
-  const PromotedRestaurant = withPromotedLabel(RestaurantCard)
+  const PromotedRestaurant = withPromotedLabel(RestaurantCard);
 
   useEffect(() => {
     getRestaurant();
@@ -34,13 +34,12 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.213261018493895&lng=72.66344391551915&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    console.log(json)
-    setAllRestaurant(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    setFilteredRestaurant(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setAllRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setAllData(json?.data)
   };
-  const topBannerSlider = allData?.cards[0]?.card?.card?.imageGridCards?.info;
-  const heh = allData?.cards[1]?.card?.card;
+  const topBannerSlider = allData?.cards[1]?.card?.card?.imageGridCards?.infoWithStyle?.restaurants;
+  const heh = allData?.cards[0]?.card?.card;
 
   if (!allRestaurant) return null;
   if (filteredRestaurant?.length === 0) return <ShimmerUI />;
@@ -51,13 +50,13 @@ const Body = () => {
     <div className="xl:container container mx-auto p-5 justify-center">
       <div className='p-2'>
         <h4 className='text-2xl font-bold mb-2'>Best offers for you</h4>
-        <SlickSlider data= {topBannerSlider}/>
+        {/* <SlickSlider data= {topBannerSlider}/> */}
       </div>
 
-      <div className='p-2'>
+      {/* <div className='p-2'>
         <h4 className='text-2xl font-bold mb-2'>{heh?.header?.title}</h4>
         <FoodVeritiesSlider data= {heh?.imageGridCards?.info}/> 
-      </div>
+      </div> */}
 
       <div className="bg-gray-200 search mx-2 p-2 flex justify-end items-center rounded-md">
         <input

@@ -1,21 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1693339188597" clover="3.2.0">
-  <project timestamp="1693339188597" name="All files">
-    <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2" elements="6" coveredelements="6" complexity="0" loc="4" ncloc="4" packages="2" files="2" classes="2"/>
+<coverage generated="1694632436588" clover="3.2.0">
+  <project timestamp="1694632436588" name="All files">
+    <metrics statements="41" coveredstatements="36" conditionals="8" coveredconditionals="2" methods="15" coveredmethods="10" elements="64" coveredelements="48" complexity="0" loc="41" ncloc="41" packages="2" files="10" classes="10"/>
     <package name="components">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <metrics statements="19" coveredstatements="19" conditionals="8" coveredconditionals="2" methods="7" coveredmethods="7"/>
       <file name="Contact.js" path="/Users/ankur/Desktop/react_learning/src/components/Contact.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="5" type="stmt"/>
       </file>
+      <file name="Header.js" path="/Users/ankur/Desktop/react_learning/src/components/Header.js">
+        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="15" count="8" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+      </file>
+      <file name="Rating.js" path="/Users/ankur/Desktop/react_learning/src/components/Rating.js">
+        <metrics statements="3" coveredstatements="3" conditionals="6" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+      </file>
+      <file name="RestaurantCard.js" path="/Users/ankur/Desktop/react_learning/src/components/RestaurantCard.js">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+      </file>
     </package>
     <package name="utils">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <metrics statements="22" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="3"/>
+      <file name="UserContext.js" path="/Users/ankur/Desktop/react_learning/src/utils/UserContext.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="appStore.js" path="/Users/ankur/Desktop/react_learning/src/utils/appStore.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+      <file name="cartSlice.js" path="/Users/ankur/Desktop/react_learning/src/utils/cartSlice.js">
+        <metrics statements="5" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+      </file>
+      <file name="constant.js" path="/Users/ankur/Desktop/react_learning/src/utils/constant.js">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+      </file>
       <file name="sum.js" path="/Users/ankur/Desktop/react_learning/src/utils/sum.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
+      </file>
+      <file name="useOnlineStatus.js" path="/Users/ankur/Desktop/react_learning/src/utils/useOnlineStatus.js">
+        <metrics statements="8" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
       </file>
     </package>
   </project>
