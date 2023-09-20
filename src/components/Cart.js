@@ -8,7 +8,6 @@ const Cart = ()=>{
   const handleClearCart=()=>{
     dispatch(clearCart())
   }
-  console.log(cartItems)
   return(
     <>
     <h1 className="font-bold text-xl text-center">Cart Items ({cartItems?.length} items)</h1>

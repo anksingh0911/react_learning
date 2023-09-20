@@ -8,7 +8,6 @@ import RestaurantCard from "./RestaurantCard";
 
 
 const SlickSlider = ({data})=>{
-  console.log(data)
   const settings = {
     dots: false,
     infinite: true,

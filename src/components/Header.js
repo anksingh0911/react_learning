@@ -17,10 +17,10 @@ const Header = () => {
   return (
     <div className="header flex px-4 py-1 mb-4 justify-between items-center shadow-lg">
       <Link to="/">
-        {/* <img 
+        <img 
           className="w-16 h-16"
-          src={logo} alt="Logo"
-        /> */}
+          src='../images/logo.png' alt="Logo"
+        />
       </Link>
       <div className="nav-wrapper">
         <ul className="flex m-1 p-1">

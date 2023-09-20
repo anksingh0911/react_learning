@@ -3,8 +3,6 @@ import '@testing-library/jest-dom';
 import RestaurantCard, { withPromotedLabel } from "../components/RestaurantCard";
 import MOCK_DATA from '../MockData/RestaurantCardMock.json';
 
-
-
 it("RestaurantCard should be rendered", ()=>{
   render(
     <RestaurantCard resData={MOCK_DATA}/>

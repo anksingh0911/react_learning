@@ -15,7 +15,7 @@ const handleAddItem = (data)=>{
   return (
     <>
       {items?.map(item =>(
-        <div key={item?.card?.info?.id} className="flex flex-wrap justify-between bg-white my-2 p-3 shadow-sm">
+        <div data-testid= "foodItems" key={item?.card?.info?.id} className="flex flex-wrap justify-between bg-white my-2 p-3 shadow-sm">
           <div className="w-10/12">
             <p className="font-semibold text-sm text-black text-bold rounded-sm">{item?.card?.info?.name}</p>
             <span className="flex items-center text-xs text-gray-500">

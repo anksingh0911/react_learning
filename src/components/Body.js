@@ -13,11 +13,8 @@ const Body = () => {
   const [allData,  setAllData]= useState();
   const [searchInput, setSearchInput] = useState();
   const {setUserName} = useContext(UserContext);
-  
 
-  console.log(allRestaurant, filteredRestaurant, 'filteredRestaurant')
   const filterData = (restaurantList, searchInput) => {
-    console.log(restaurantList, 'restaurantList')
     return restaurantList.filter((restaurant) =>
       restaurant?.info?.name?.toLowerCase().includes(searchInput.toLowerCase())
     );
@@ -34,8 +31,8 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.213261018493895&lng=72.66344391551915&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    setAllRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setAllRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilteredRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setAllData(json?.data)
   };
   const topBannerSlider = allData?.cards[1]?.card?.card?.imageGridCards?.infoWithStyle?.restaurants;
@@ -62,6 +59,7 @@ const Body = () => {
         <input
           className="border border-solid border-black p-1 rounded-md"
           type="text"
+          data-testid = "searchInput"
           placeholder="Search"
           onChange={(e) =>setSearchInput(e.target.value)}
         />
