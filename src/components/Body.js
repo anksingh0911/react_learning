@@ -32,8 +32,8 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.213261018493895&lng=72.66344391551915&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    setAllRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setAllRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilteredRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setAllData(json?.data)
   };
   
@@ -88,11 +88,11 @@ const Body = () => {
           onChange={(e) => setUserName(e.target.value)}
         />
       </div>
-      <div className="xl:container mx-auto flex flex-wrap justify-start">
+      <div className="xl:container mx-auto grid grid-cols-4 md:grid-cols-6 lg:grid-cols-4 ">
         {filteredRestaurant.map((restaurant) => (
           <Link
             key={restaurant?.info?.id}
-            className="w-3/12 p-2 mb-4"
+            className="col-span-2 md:col-span-2 lg:col-span-1 p-2 mb-4"
             to={"/restaurants/" + restaurant?.info?.id}
           >
             {restaurant?.data?.promoted === false ? 

@@ -20,7 +20,7 @@ const TopRestaurant = ({data, title}) => {
        <h4 className='text-2xl font-semibold mb-4'>{title}</h4>
       <Slider {...settings}>
         {topRestaurantList?.map((item)=>(
-          <div key={item?.id} className="m-2">
+          <div key={item?.id} className="m-2 bg-white h-[280px]">
             <RestaurantCard resData={item}/>
           </div>
         ))}
