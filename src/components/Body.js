@@ -5,6 +5,7 @@ import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import ShimmerUI from "./Shimmer";
 import SlickSlider from "./TopSlider";
 import FoodVeritiesSlider from './FoodVeritiesSlider';
+import TopRestaurant from "./TopRestaurant";
 
 const Body = () => {
 
@@ -36,9 +37,9 @@ const Body = () => {
     setAllData(json?.data)
   };
   
-  const topBannerSlider = allData?.cards[1]?.card?.card?.imageGridCards?.infoWithStyle?.restaurants;
-  const heh = allData?.cards[0]?.card?.card;
-
+  const topRestaurant = allData?.cards[1]?.card?.card;
+  const foodTypes = allData?.cards[0]?.card?.card;
+  console.log(allData, 'types')
   if (!allRestaurant) return null;
   if (filteredRestaurant?.length === 0) return <ShimmerUI />;
 
@@ -47,14 +48,9 @@ const Body = () => {
   ) : (
     <div className="xl:container container mx-auto p-5 justify-center">
       <div className='p-2'>
-        <h4 className='text-2xl font-bold mb-2'>Best offers for you</h4>
-        {/* <SlickSlider data= {topBannerSlider}/> */}
+        <FoodVeritiesSlider data= {foodTypes?.imageGridCards?.info} title={foodTypes?.header?.title}/> 
       </div>
-
-      {/* <div className='p-2'>
-        <h4 className='text-2xl font-bold mb-2'>{heh?.header?.title}</h4>
-        <FoodVeritiesSlider data= {heh?.imageGridCards?.info}/> 
-      </div> */}
+      <TopRestaurant data={topRestaurant} title={topRestaurant?.header?.title}/>
 
       <div className="bg-gray-200 search mx-2 p-2 flex justify-end items-center rounded-md">
         <input

@@ -7,26 +7,30 @@ import { CDN_URL } from "../utils/constant";
 import SliderImage from "./Image";
 import { foodVerities_url } from "../utils/constant";
 
-const FoodVeritiesSlider = ({data})=>{
+const FoodVeritiesSlider = ({data, title})=>{
   const settings = {
     dots: false,
     infinite: true,
     autoplay:true,
     speed: 500,
-    slidesToShow: data?.length > 9 ? 9: data.length -1 ,
-    slidesToScroll: 1,
+    slidesToShow: 8 ,
+    slidesToScroll: 2,
     responsive:responsive,
     navigator:true
   };
 
   return(
-    <Slider {...settings}>
+    <div>
+      <h4 className='text-2xl font-semibold mb-2'>{title}</h4>
+      <Slider {...settings}>
       {data?.map(item => (
-        <div className='p-1 rounded-lg'>
+        <div className='p-1 rounded-lg cursor-pointer focus-visible:outline-0 hover:shadow-md'>
           <img src={foodVerities_url + item?.imageId}/>
         </div>
       ))}
     </Slider>
+    </div>
+    
   )
 }
 export default FoodVeritiesSlider;
