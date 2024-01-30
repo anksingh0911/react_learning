@@ -15,18 +15,20 @@ const RestaurantCard = (props)=>{
     sla
   } = resData?.info
   return(
-    <div data-testid="resCard" className="p-2 mb-4 mx-1 shadow-lg rounded-lg h-[100%]">
+    <div data-testid="resCard" className="p-2 mb-4 hover:border hover:scale-95 transition-all delay-200 ease-linear rounded-lg h-[100%]">
         <img 
-          className="rounded-md mb-1"
+          className="rounded-xl mb-2"
           src={ CDN_URL + cloudinaryImageId } alt="Logo"
         />
-        <h4 className="font-semibold text-sm mb-1">{name}</h4>
-        <p className="text-xs text-gray-500 mb-2 line-clamp-2 text-ellipsis">{cuisines.join(', ')}</p>
-        <p className="flex justify-between text-xs">
-          <Rating rating = {avgRating}/>
-          <span className="font-semibold text-gray-700">{costForTwo}</span>
-          <span className="font-semibold text-gray-700">{sla?.deliveryTime} minutes</span>
-        </p>
+        <div className="px-2">
+          <h4 className="font-semibold text-md mb-1">{name}</h4>
+          <p className="text-xs text-gray-500 mb-2 line-clamp-2 text-ellipsis">{cuisines.join(', ')}</p>
+          <p className="flex justify-between text-xs">
+            <Rating rating = {avgRating}/>
+            <span className="font-semibold text-gray-700">{costForTwo}</span>
+            <span className="font-semibold text-gray-700">{sla?.deliveryTime} minutes</span>
+          </p>
+        </div>
     </div>
   )
 };

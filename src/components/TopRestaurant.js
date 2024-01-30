@@ -16,7 +16,7 @@ const TopRestaurant = ({data, title}) => {
     navigator:true
   };
   return (
-    <div className='p-2 my-2'>
+    <div className='p-2 my-3 pb-[15px] border-b-2'>
        <h4 className='text-2xl font-semibold mb-4'>{title}</h4>
       <Slider {...settings}>
         {topRestaurantList?.map((item)=>(

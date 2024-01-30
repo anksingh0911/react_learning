@@ -8,6 +8,7 @@ import SliderImage from "./Image";
 import { foodVerities_url } from "../utils/constant";
 
 const FoodVeritiesSlider = ({data, title})=>{
+  console.log(title, 'title')
   const settings = {
     dots: false,
     infinite: true,

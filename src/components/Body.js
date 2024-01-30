@@ -29,11 +29,11 @@ const Body = () => {
 
   const getRestaurant = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.213261018493895&lng=72.66344391551915&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.2156354&lng=72.63694149999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    setAllRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    setFilteredRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setAllRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilteredRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setAllData(json?.data)
   };
   
@@ -51,7 +51,6 @@ const Body = () => {
         <FoodVeritiesSlider data= {foodTypes?.imageGridCards?.info} title={foodTypes?.header?.title}/> 
       </div>
       <TopRestaurant data={topRestaurant} title={topRestaurant?.header?.title}/>
-
       <div className="bg-gray-200 search mx-2 p-2 flex justify-end items-center rounded-md">
         <input
           className="border border-solid border-black p-1 rounded-md"
