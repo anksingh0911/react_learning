@@ -36,10 +36,9 @@ const Body = () => {
     setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setAllData(json?.data)
   };
-  
   const topRestaurant = allData?.cards[1]?.card?.card;
   const foodTypes = allData?.cards[0]?.card?.card;
-  console.log(allData, 'types')
+
   if (!allRestaurant) return null;
   if (filteredRestaurant?.length === 0) return <ShimmerUI />;
 
@@ -51,15 +50,16 @@ const Body = () => {
         <FoodVeritiesSlider data= {foodTypes?.imageGridCards?.info} title={foodTypes?.header?.title}/> 
       </div>
       <TopRestaurant data={topRestaurant} title={topRestaurant?.header?.title}/>
-      <div className="bg-gray-200 search mx-2 p-2 flex justify-end items-center rounded-md">
-        <input
+      <div className="bg-gray-100 search mx-2 p-2 flex justify-end items-center rounded-md">
+
+        {/* <input
           className="border border-solid border-black p-1 rounded-md"
           type="text"
           data-testid = "searchInput"
           placeholder="Search"
           onChange={(e) =>setSearchInput(e.target.value)}
-        />
-        <button
+        /> */}
+        {/* <button
           className="px-4 py-1 bg-green-500 m-2 rounded-md"
           onClick={() => {
             const data = filterData(allRestaurant, searchInput);
@@ -78,14 +78,16 @@ const Body = () => {
           }}
         >
           Top Rated
-        </button>
+        </button> */}
 
-        <input
+        {/* <input
           className="border border-solid border-black p-1 rounded-md"
           type="text"
           placeholder="Logged in user name"
           onChange={(e) => setUserName(e.target.value)}
-        />
+        /> */}
+
+        
       </div>
       <div className="xl:container mx-auto grid grid-cols-4 md:grid-cols-6 lg:grid-cols-4 ">
         {filteredRestaurant.map((restaurant) => (
